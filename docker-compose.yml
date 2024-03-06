@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  timescaledb:
+    image: timescale/timescaledb-ha:pg16
+    container_name: timescaledb2
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: password
+    restart: always
+
+  postgresql:
+    image: postgres
+    container_name: postgresql
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_PASSWORD: password
+    restart: always
